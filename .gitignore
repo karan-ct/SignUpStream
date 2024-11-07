@@ -1,0 +1,14 @@
+################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/SignUpStreamAPI/.vs
+/SignUpStreamAPI/obj
+/SignUpStreamAPI/SignUpStream/bin/Debug/net8.0
+/SignUpStreamAPI/SignUpStream/obj
+/SignUpStreamAPI/SignUpStream.Core/bin/Debug/net8.0
+/SignUpStreamAPI/SignUpStream.Core/obj
+/SignUpStreamAPI/SignUpStream.Data/bin/Debug/net8.0
+/SignUpStreamAPI/SignUpStream.Data/obj
+/SignUpStreamAPI/SignUpStream.Infra/bin/Debug/net8.0
+/SignUpStreamAPI/SignUpStream.Infra/obj
