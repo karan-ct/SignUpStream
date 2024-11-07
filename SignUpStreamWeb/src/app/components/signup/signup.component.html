@@ -1,0 +1,303 @@
+<div class="bg-light">
+  <header class="top-fix-header bg-white">
+    <div class="header-wrap">
+      <img src="/logo.png" class="brand-img" />
+    </div>
+  </header>
+  <section class="banner-section-top">
+    <div class="banner-section-wrap">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-6">
+            <div class="text-wrap">
+              <h2 class="banner-title font-white font-semibold">
+                With our canteen system.
+              </h2>
+              <ul>
+                <li class="banner-subtitle font-red font-semibold">
+                  Track orders
+                </li>
+                <li class="banner-subtitle font-red font-semibold">
+                  Get real-time updates
+                </li>
+                <li class="banner-subtitle font-red font-semibold">
+                  Set preferences
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="sign-up-form-section">
+    <div class="form-section-wrap">
+      <div class="container">
+        <div class="form-header">
+          <h1 class="form-title font-darkgray font-semibold text-capitalize">
+            Sign up
+          </h1>
+          <h6 class="form-subtitle font-darkgray font-semibold">
+            Enter your details and explore your chooses
+          </h6>
+        </div>
+        <div class="sign-up-form">
+          <div class="row">
+            <div class="col-lg-7 horizontal-divider">
+              <div class="form-wrap">
+                <form id="sign-up" [formGroup]="signupForm" (ngSubmit)="onSubmit()">
+                  <div class="row">
+                    <!-- First Name -->
+                    <div class="col-lg-6 col-md-6 col-12 mt-3">
+                      <div class="form-group">
+                        <label id="first name-label" class="label medium-gray" for="firstName">First name</label>
+                        <input type="text" name="firstName" id="first-name" class="form-control" [ngClass]="{
+                            'is-invalid':
+                            signupForm.get('FirstName')?.invalid &&
+                            signupForm.get('FirstName')?.touched
+                          }" formControlName="FirstName" required="" />
+                        <div *ngIf="
+                            signupForm.get('FirstName')?.invalid &&
+                            signupForm.get('FirstName')?.touched
+                          ">
+                          <small *ngIf="signupForm.get('FirstName')?.errors?.['minlength']">First Name must be at least
+                            3 characters
+                            long.</small>
+                        </div>
+                      </div>
+                    </div>
+
+                    <!-- Last Name -->
+                    <div class="col-lg-6 col-md-6 col-12 mt-3">
+                      <div class="form-group">
+                        <label id="last name-label" class="label medium-gray" for="lastName">Last name</label>
+                        <input type="text" name="lastName" id="last-name" class="form-control" [ngClass]="{
+                            'is-invalid':
+                            signupForm.get('LastName')?.invalid &&
+                            signupForm.get('LastName')?.touched
+                          }" formControlName="LastName" />
+                        <div *ngIf="
+                            signupForm.get('LastName')?.invalid &&
+                            signupForm.get('LastName')?.touched
+                          ">
+                          <small *ngIf="signupForm.get('LastName')?.errors?.['minlength']">Last Name must be at least 3
+                            characters
+                            long.</small>
+                        </div>
+                      </div>
+                    </div>
+
+                    <!-- Email -->
+                    <div class="col-lg-12 col-md-12 col-12 mt-3">
+                      <div class="form-group">
+                        <label id="email-label" class="label medium-gray" for="email">Email</label>
+                        <input type="text" name="email" id="Email" class="form-control" formControlName="Email"
+                          [ngClass]="{
+                            'is-invalid':
+                            signupForm.get('Email')?.invalid &&
+                            signupForm.get('Email')?.touched
+                          }" required="" />
+                        <div *ngIf="
+                            signupForm.get('Email')?.invalid &&
+                            signupForm.get('Email')?.touched
+                          ">
+                          <small *ngIf="signupForm.get('Email')?.errors?.['Email']">Please enter a valid email.</small>
+                        </div>
+                      </div>
+                    </div>
+
+                    <!-- Phone Number -->
+                    <div class="col-lg-12 col-md-12 col-12 mt-3">
+                      <div class="form-group">
+                        <label id="phone-label" class="label medium-gray" for="phone">Phone</label>
+                        <div class="d-flex">
+                          <div class="country-select">
+                            <select formControlName="CountryCode" (change)="onCountryChange($event)">
+                              <option *ngFor="let country of countries" [value]="country.isoCode">
+                                <div [style.background]="
+                                    'url(' + country.flag + ')'
+                                  "></div>
+                                <img [src]="country.flag" alt="{{ country.name }} Flag" width="35" height="25" />
+                              </option>
+                            </select>
+                          </div>
+                          <input type="text" name="phone" id="Phone" class="form-control" [ngClass]="{
+                            'is-invalid':
+                            signupForm.get('Phone')?.invalid &&
+                            signupForm.get('Phone')?.touched
+                          }" formControlName="Phone" />
+                        </div>
+                        <div *ngIf="
+                            signupForm.get('Phone')?.invalid &&
+                            signupForm.get('Phone')?.touched
+                          ">
+                          <small *ngIf="signupForm.get('Phone')?.errors?.['pattern']">Please enter a valid Phone
+                            Number.</small>
+                        </div>
+                      </div>
+                    </div>
+
+                    <!-- Gender -->
+                    <div class="col-lg-12 col-md-12 col-12 mt-3">
+                      <div class="form-group">
+                        <label class="label medium-gray">Gender</label>
+                        <div class="d-flex align-items-center mt-2">
+                          <div class="custom-control custom-radio custom-control-inline">
+                            <input type="radio" id="customRadioInline1" value="Male" formControlName="Gender"
+                              name="Gender" class="custom-control-input" checked />
+                            <label class="custom-control-label" for="customRadioInline1">Male</label>
+                          </div>
+                          <div class="custom-control custom-radio custom-control-inline ms-5">
+                            <input type="radio" id="customRadioInline2" value="Female" formControlName="Gender"
+                              name="Gender" class="custom-control-input" />
+                            <label class="custom-control-label" for="customRadioInline2">Female</label>
+                          </div>
+                        </div>
+                        <div *ngIf="
+                            signupForm.get('Gender')?.invalid &&
+                            signupForm.get('Gender')?.touched
+                          ">
+                          <small *ngIf="signupForm.get('Gender')?.errors?.['required']">Please select Gender.</small>
+                        </div>
+                      </div>
+                    </div>
+
+                    <!-- Password -->
+                    <div class="col-lg-12 col-md-12 col-12 mt-3">
+                      <div class="form-group">
+                        <label id="password-label" class="label medium-gray" for="password">Password</label>
+                        <input [type]="passFieldTextType ? 'text' : 'password'" name="password" id="Password" [ngClass]="{
+                          'is-invalid':
+                          signupForm.get('Password')?.invalid &&
+                          signupForm.get('Password')?.touched
+                        }" class="form-control" formControlName="Password" />
+                        <img [src]="
+                            !passFieldTextType
+                              ? '/eye-icon.svg'
+                              : '/pwd-show-icon.svg'
+                          " (click)="passFieldTextType = !passFieldTextType" [class]="
+                            !passFieldTextType ? 'input-icon' : 'pwd-show-icon'
+                          " />
+                        <div *ngIf="
+                            signupForm.get('Password')?.invalid &&
+                            signupForm.get('Password')?.touched
+                          ">
+                        </div>
+                      </div>
+                    </div>
+
+                    <!-- Confirm Password -->
+                    <div class="col-lg-12 col-md-12 col-12 mt-3">
+                      <div class="form-group">
+                        <label id="confirm-password-label" class="label medium-gray"
+                          for="confirm-password">Confirm-Password</label>
+                        <input [type]="
+                            confirmPassFieldTextType ? 'text' : 'password'
+                          " name="confirm-password" id="Confirm-Password" class="form-control" [ngClass]="{
+                            'is-invalid':
+                            signupForm.get('ConfirmPassword')?.invalid &&
+                            signupForm.get('ConfirmPassword')?.touched
+                          }" formControlName="ConfirmPassword" />
+                        <img [src]="
+                            !confirmPassFieldTextType
+                              ? '/eye-icon.svg'
+                              : '/pwd-show-icon.svg'
+                          " (click)="
+                            confirmPassFieldTextType = !confirmPassFieldTextType
+                          " [class]="
+                            !confirmPassFieldTextType
+                              ? 'input-icon'
+                              : 'pwd-show-icon'
+                          " />
+                        <div class="row">
+                          <div class="col-lg-4">
+                            <ul class="pwd-characteristics">
+                              <li [class.invalid]="signupForm.get('ConfirmPassword')?.errors?.['minlength']">
+                                Use 8 or more characters
+                              </li>
+                            </ul>
+                          </div>
+                          <div class="col-lg-4">
+                            <ul class="pwd-characteristics">
+                              <li [class.invalid]="signupForm.get('ConfirmPassword')?.errors?.['upperCase']">
+                                One Uppercase character
+                              </li>
+                            </ul>
+                          </div>
+                          <div class="col-lg-4">
+                            <ul class="pwd-characteristics">
+                              <li [class.invalid]="signupForm.get('ConfirmPassword')?.errors?.['lowerCase']">
+                                One lowercase character
+                              </li>
+                            </ul>
+                          </div>
+                          <div class="col-lg-4">
+                            <ul class="pwd-characteristics">
+                              <li [class.invalid]="signupForm.get('ConfirmPassword')?.errors?.['specialChar']">
+                                One special character
+                              </li>
+                            </ul>
+                          </div>
+                          <div class="col-lg-4">
+                            <ul class="pwd-characteristics">
+                              <li [class.invalid]="signupForm.get('ConfirmPassword')?.errors?.['numeric']">
+                                One number
+                              </li>
+                            </ul>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Terms & Condition Agreement -->
+                  <div class="checkbox-group mt-3">
+                    <input type="checkbox" id="terms-condition" [ngModelOptions]="{ standalone: true }"
+                      [(ngModel)]="termsAccepted" />
+                    <label for="terms-condition" class="terms-condition">
+                      <p class="mb-0">
+                        Agree to our Terms of use and Privacy Policy
+                      </p>
+                    </label>
+                  </div>
+                </form>
+
+                <!-- Social Signup Buttons -->
+                <div class="form-bottom-warp">
+                  <h6>Or</h6>
+                  <hr class="divider" />
+                  <div class="signup-options-warp">
+                    <div class="button-wrap">
+                      <button class="btn btn-signup-google signup-btns">
+                        <img src="/google.svg" class="icon-google" />
+                        <p>Continue with Google</p>
+                      </button>
+                      <button class="btn btn-signup-fb signup-btns mt-3">
+                        <img src="/fb.svg" class="icon-fb" />
+                        <p>Continue with Facebook</p>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-5">
+              <app-subscription #subscription [(subscription)]="user.Subscription" />
+            </div>
+          </div>
+          <div class="payment-btn-wrap">
+            <button class="btn btn-payment font-semibold" (click)="onSubmit()" [disabled]="
+                signupForm.invalid ||
+                !termsAccepted ||
+                !user.Subscription.TotalBranch ||
+                !user.Subscription.PricePlanId ||
+                !user.Subscription.TotalAmount
+              ">
+              Payment
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>

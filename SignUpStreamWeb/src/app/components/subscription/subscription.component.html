@@ -1,0 +1,117 @@
+<div class="subscription-plans-section mt-lg-0 mt-4">
+  <div class="subscription-plans-wrap">
+    <!-- Title -->
+    <h3 class="subscription-title font-semibold">Subscription</h3>
+
+    <!-- Total Breanch -->
+    <div class="branch-num-selector">
+      <h6 class="font-darkgray mb-0">Number Of Branch</h6>
+      <div class="num-selector-wrap">
+        <button class="btn btn-decrement" [disabled]="subscription.TotalBranch < 2" (click)="
+            subscription.TotalBranch = subscription.TotalBranch - 1;
+            onChangeBranch()
+          ">
+          <img src="/minus.svg" />
+        </button>
+        <h5 class="number font-semibold font-red mb-0">
+          {{ subscription.TotalBranch }}
+        </h5>
+        <button class="btn btn-increment" (click)="
+            subscription.TotalBranch = subscription.TotalBranch + 1;
+            onChangeBranch()
+          ">
+          <img src="/plus.svg" />
+        </button>
+      </div>
+    </div>
+
+    <hr class="divider" />
+
+    <!-- Membership Type -->
+    <div class="membership-type-section">
+      <h6 class="membership-title">Membership Type</h6>
+      <form class="membership-type">
+        @for (plan of membershipPlans; track $index) {
+        <div class="mt-2">
+          <div class="custom-control custom-radio subscription-cards-selection custom-control-inline d-flex">
+            <input type="radio" [value]="plan.id" (change)="onMembershipPlanChange(plan.id)"
+              [checked]="plan.membershipPlanType === membershipPlanTypes.Annualy" name="subscriptionplan"
+              id="membership-{{plan.id}}" class="custom-control-input" />
+            <label class="custom-control-label d-flex justify-content-between" for="Monthlyplan">
+              <div class="selection-card">
+                <h4 class="card-main-title font-semibold mb-2 ms-2">
+                  Pay {{ membershipPlanTypes[plan.membershipPlanType] }}
+                </h4>
+                <h6 class="card-sub-title font-darkgray mb-0 ms-2">
+                  AED
+                  {{ plan.discount ? getDiscountedAmount(plan) : plan.price }}
+                  / Month Per Member
+                </h6>
+              </div>
+              <div *ngIf="plan.discount" class="discount-badge d-flex align-items-center">
+                <p class="font-white mb-0">Save {{ plan.discount }}%</p>
+              </div>
+            </label>
+          </div>
+        </div>
+        }
+      </form>
+    </div>
+
+    <!-- Plan features -->
+    <div class="features-section">
+      <div class="features-section-wrap">
+        <h6 class="features-title font-semibold">Contain this feature</h6>
+        <div class="features-list">
+          <p>
+            <img src="/feature-point.svg" class="feature-point-iocn" />Advanced
+            analytics
+          </p>
+          <p>
+            <img src="/feature-point.svg" class="feature-point-iocn" />Mobile
+            app access
+          </p>
+          <p>
+            <img src="/feature-point.svg" class="feature-point-iocn" />Real-time
+            updates and notifications
+          </p>
+          <p class="font-semibold">
+            <img src="/feature-point.svg" class="feature-point-iocn" />Up to 500
+            students
+          </p>
+          <p class="font-semibold">
+            <img src="/feature-point.svg" class="feature-point-iocn" />Multiple
+            school branches
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Apply Coupon -->
+    <div class="coupon-code-section">
+      <form class="coupon-code">
+        <div class="coupon-input">
+          <input type="text" placeholder="Your coupon Code" [(ngModel)]="promoCode"
+            [ngModelOptions]="{ standalone: true }" />
+          <button class="btn btn-apply-coupon font-white" (click)="applyCoupon()">
+            Apply coupon
+          </button>
+        </div>
+      </form>
+    </div>
+    <hr class="dashed-divider" />
+
+    <!-- Total Amount -->
+    <div class="total-amount">
+      <div class="amount-wrapper">
+        <h5 class="mb-0">Total</h5>
+        <p class="mb-0"><span>AED</span>{{ totalAmount }}</p>
+      </div>
+    </div>
+
+    <!-- Saved Amount -->
+    <div class="success-plan-message" *ngIf="savedAmount">
+      <p> <span class="font-semibold">Congratulations!</span> You have saved {{ savedAmount }} AED </p>
+    </div>
+  </div>
+</div>

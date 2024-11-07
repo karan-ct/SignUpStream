@@ -1,0 +1,7 @@
+[
+    { "name": "United States", "isoCode": "US", "dialCode": "+1", "flag": "https://flagcdn.com/us.svg" },
+    { "name": "United Kingdom", "isoCode": "GB", "dialCode": "+44", "flag": "https://flagcdn.com/gb.svg" },
+    { "name": "India", "isoCode": "IN", "dialCode": "+91", "flag": "https://flagcdn.com/in.svg" },
+    { "name": "Canada", "isoCode": "CA", "dialCode": "+1", "flag": "https://flagcdn.com/ca.svg" },
+    { "name": "Australia", "isoCode": "AU", "dialCode": "+61", "flag": "https://flagcdn.com/au.svg" }
+  ]

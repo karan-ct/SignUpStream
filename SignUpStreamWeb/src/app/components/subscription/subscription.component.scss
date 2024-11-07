@@ -1,0 +1,240 @@
+
+/*-----------------subscription-plan-section-----------------*/
+.subscription-plans-section {
+    padding: 1rem;
+    background-color: #fff;
+    border-radius: 8px;
+}
+
+.subscription-title {
+    font-size: 20px;
+}
+
+.branch-num-selector h6 {
+    font-size: 14px;
+}
+
+.num-selector-wrap .btn {
+    height: 40px;
+    width: 40px;
+    padding: 5px;
+    border: 1px solid #DB1F26;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 8px;
+}
+
+.branch-num-selector {
+    padding: 1rem 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.num-selector-wrap {
+    display: flex;
+    align-items: center;
+}
+
+.num-selector-wrap .number {
+    padding: 0 1rem;
+}
+
+.num-selector-wrap .btn img {
+    width: 15px;
+    height: 15px;
+}
+
+.num-selector-wrap .number {
+    font-size: 18px;
+}
+
+.divider {
+    border: 1px solid #D4D8D8;
+    box-shadow: 0px 4px 4px 0px #0000001C inset;
+}
+
+.card-main-title {
+    font-size: 14px;
+    color: #1B252B;
+}
+
+.card-sub-title {
+    font-size: 12px;
+    font-weight: 400;
+}
+
+.membership-type [type="radio"]:checked+label:before,
+.membership-type [type="radio"]:not(:checked)+label:before {
+    top: 12px;
+}
+
+.membership-type [type="radio"]:checked+label:after,
+.membership-type [type="radio"]:not(:checked)+label:after {
+    top: 16px;
+}
+
+.membership-type .custom-control {
+    padding: 1rem;
+    border: 1px solid #EFEFEF;
+    border-radius: 8px;
+    width: 100%;
+}
+
+.active {
+    background-color: #F2F3F3;
+}
+
+.discount-badge {
+    background-color: #F2C800;
+    border-radius: 12px;
+}
+
+.subscription-cards-selection .custom-control-label {
+    width: 100%;
+}
+
+.discount-badge p {
+    font-size: 12px;
+    font-weight: 700;
+    padding: 5px 14px;
+}
+
+.features-section {
+    padding: 1rem 0;
+}
+
+.features-title {
+    font-size: 14px;
+    color: #1D2020;
+}
+
+.features-list p {
+    font-size: 16px;
+    color: #000C73;
+}
+
+.features-list img {
+    height: 14px;
+    width: 14px;
+    margin-right: 8px;
+}
+
+.coupon-input input {
+    padding: 10px;
+    width: 100%;
+    border: 1px dashed #D4D8D8;
+    border-radius: 8px;
+}
+
+.btn-apply-coupon {
+    padding: 5px 10px;
+    top: 5px;
+    right: 8px;
+    position: absolute;
+    width: max-content;
+    background-color: #1D2020;
+    border-radius: 8px;
+    color: #FFF;
+}
+
+.coupon-input {
+    position: relative;
+}
+
+.dashed-divider {
+    border: 2px dashed #D4D8D8;
+}
+
+.total-amount {
+    padding: 1rem 10px;
+    background-color: #D4D8D8;
+    border-radius: 8px;
+}
+
+.amount-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.amount-wrapper h5 {
+    font-size: 18px;
+    color: #1D2020;
+    font-weight: 700;
+}
+
+.amount-wrapper p {
+    font-size: 22px;
+    color: #1D2020;
+    font-weight: 700;
+}
+
+.amount-wrapper span {
+    padding-right: 4px;
+    font-size: 16px;
+}
+
+.success-plan-message p{
+    font-size: 16px;
+    text-align: center;
+    padding-top: 8px;
+}
+
+.footer-wrap p{
+    font-size: 14px;
+    margin-bottom: 0;
+    text-align: center;
+    color: #6C757D;
+}
+.footer-wrap a{
+    font-size: 12px;
+    text-align: center;
+    color: #036173;
+    display: block;
+}
+
+@media(max-width:991px){
+    .subscription-title {
+        font-size: 16px;
+    }
+    .num-selector-wrap .btn {
+        height: 34px;
+        width: 34px;
+    }
+    .num-selector-wrap .btn img {
+        width: 12px;
+        height: 12px;
+    }
+    .discount-badge p {
+        font-size: 12px;
+        padding: 5px 6px;
+    }
+    .features-list p {
+        font-size: 14px;
+    }
+    .coupon-input input{
+        font-size: 12px;
+    }
+    .btn-apply-coupon {
+        top: 7px;
+        font-size: 10px;
+    }
+    .amount-wrapper h5 {
+        font-size: 14px;
+    }
+    .amount-wrapper p {
+        font-size: 16px;
+    }
+    .amount-wrapper span {
+        font-size: 12px;
+    }
+    .success-plan-message p {
+        font-size: 14px;
+        padding-top: 12px;
+    }
+    .custom-control-label {
+        font-size: 12px;
+    }
+}
